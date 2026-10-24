@@ -1,28 +1,46 @@
 ﻿
 using System;
-
 class Program
 {
     static void Main()
     {
-        Console.Write("текст");
-        string text = Console.ReadLine() ?? "";
+        int[,] a = new int[2, 2];
+        int[,] b = new int[2, 2];
+        int[,] c = new int[2, 2];
 
-        string vowels = "аеёиоуыэюяАЕЁИОУЫЭЮЯaeiouyAEIOUY";
-        int vowelCount = 0;
-        int consonantCount = 0;
-
-        foreach (char ch in text)
+        Console.WriteLine("1 матрица:");
+        for (int i = 0; i < 2; i++)
         {
-            if (!char.IsLetter(ch)) continue;
-
-            if (vowels.Contains(ch))
-                vowelCount++;
-            else
-                consonantCount++;
+            for (int j = 0; j < 2; j++)
+            {
+                Console.Write($"Строка {i + 1}, столбец {j + 1}: ");
+                a[i, j] = int.Parse(Console.ReadLine());
+            }
         }
 
-        Console.WriteLine($"Гл: {vowelCount}");
-        Console.WriteLine($"Согл: {consonantCount}");
+        Console.WriteLine("2 матрица:");
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                Console.Write($"Строка {i + 1}, столбец {j + 1}: ");
+                b[i, j] = int.Parse(Console.ReadLine());
+            }
+        }
+
+        Console.WriteLine("Рез:");
+        for (int i = 0; i < 2; i++)
+        {
+            for (int j = 0; j < 2; j++)
+            {
+                for (int k = 0; k < 2; k++)
+                    c[i, j] += a[i, k] * b[k, j];
+
+                Console.Write(c[i, j] + "\t");
+            }
+
+            Console.WriteLine();
+        }
     }
 }
+
