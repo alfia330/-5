@@ -179,7 +179,7 @@
 //        LinkedList<LinkedList<int>> b)
 //    {
 //        if (Cols(a) != Rows(b))
-//            throw new Exception("Несовместимые размеры матриц");
+//            throw new Exception("размер не подх");
 
 //        var c = new LinkedList<LinkedList<int>>();
 
